@@ -3,12 +3,20 @@ import React, { useState } from "react";
 const TextForm = (props) => {
   const handleUpClick = () => {
     // console.log("Uppercase button was clicked");
-    setText(text.toUpperCase());
+    let newText = text.toUpperCase();
+    setText(newText);
   };
 
   const handleLowClick = () => {
     // console.log("Uppercase button was clicked");
-    setText(text.toLowerCase());
+    let newText = text.toLowerCase();
+    setText(newText);
+  };
+
+  const handleClearClick = () => {
+    // console.log("Uppercase button was clicked");
+    let newText = "";
+    setText(newText);
   };
 
   const handleOnChange = (event) => {
@@ -19,6 +27,9 @@ const TextForm = (props) => {
   const [text, setText] = useState("");
   //   text = "new text"; // Wrong way to change the state
   //   setText("new text"); // Correct way to change the state
+  let char = text.length;
+  let word = (char === 0 ? 0 : text.split(" ").length );
+
   return (
     <>
       <div className="container">
@@ -40,11 +51,14 @@ const TextForm = (props) => {
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>
           Convert to Lowercase
         </button>
+        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+          Clear Text
+        </button>
       </div>
       <div className="container my-2">
           <h3>Your text summary</h3>
-          <p>{text.split(" ").length} words and {text.length} characters</p>
-          <p>{0.008 * text.split(" ").length} Minutes read</p>
+          <p>{word} words and {char} characters</p>
+          <p>{0.008 * word} Minutes read</p>
           <h3>Preview</h3>
           <p>{text}</p>
       </div>
