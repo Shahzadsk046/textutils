@@ -1,11 +1,12 @@
 import React from "react";
-
-const Navbar = () => {
+import PropTypes from "prop-types";
+// Navbar Using Props
+const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          TextUtils
+          {props.title}
         </a>
         <button
           className="navbar-toggler"
@@ -27,7 +28,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                About
+                {props.aboutText}
               </a>
             </li>
           </ul>
@@ -38,7 +39,7 @@ const Navbar = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-primary" type="submit">
               Search
             </button>
           </form>
@@ -47,5 +48,17 @@ const Navbar = () => {
     </nav>
   );
 };
+
+// defining propTypes for Navbar to restrict props to string type
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string,
+};
+
+// defaultProps is used to add some text by default if given props are not defined
+Navbar.defaultProps = {
+  title: "Set Title here",
+  aboutText: "Set About here",
+}
 
 export default Navbar;
