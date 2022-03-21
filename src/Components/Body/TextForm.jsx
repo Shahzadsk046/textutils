@@ -25,8 +25,9 @@ const TextForm = (props) => {
   };
 
   const handleCopy = () => {
-    let newText = text;
-    navigator.clipboard.writeText(newText);
+    let newText = document.getElementById("myBox");
+    newText.select();
+    navigator.clipboard.writeText(newText.value);
   };
 
   const handleExtraSpaces = () => {
@@ -42,7 +43,10 @@ const TextForm = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <div className="mb-3">
           <h1>{props.heading}</h1>
           {/* <label htmlFor="myBox" className="form-label">Enter your text below</label> */}
@@ -51,6 +55,10 @@ const TextForm = (props) => {
             value={text}
             placeholder="Enter text here"
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#424242" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
             id="myBox"
             rows="5"
           ></textarea>
@@ -71,14 +79,17 @@ const TextForm = (props) => {
           Remove Extra Spaces
         </button>
       </div>
-      <div className="container my-2">
+      <div
+        className="container my-2"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h3>Your text summary</h3>
         <p>
           {word} words and {char} characters
         </p>
         <p>{0.008 * word} Minutes read</p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Type something in box to preview"}</p>
       </div>
     </>
   );
