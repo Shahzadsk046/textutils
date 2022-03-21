@@ -24,11 +24,17 @@ const TextForm = (props) => {
     setText(event.target.value);
   };
 
+  const handleCopy = () => {
+    let newText = text;
+    
+    navigator.clipboard.writeText(newText);
+  };
+
   const [text, setText] = useState("");
   //   text = "new text"; // Wrong way to change the state
   //   setText("new text"); // Correct way to change the state
   let char = text.length;
-  let word = (char === 0 ? 0 : text.split(" ").length );
+  let word = char === 0 ? 0 : text.split(" ").length;
 
   return (
     <>
@@ -54,13 +60,18 @@ const TextForm = (props) => {
         <button className="btn btn-primary mx-1" onClick={handleClearClick}>
           Clear Text
         </button>
+        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+          Copy Text
+        </button>
       </div>
       <div className="container my-2">
-          <h3>Your text summary</h3>
-          <p>{word} words and {char} characters</p>
-          <p>{0.008 * word} Minutes read</p>
-          <h3>Preview</h3>
-          <p>{text}</p>
+        <h3>Your text summary</h3>
+        <p>
+          {word} words and {char} characters
+        </p>
+        <p>{0.008 * word} Minutes read</p>
+        <h3>Preview</h3>
+        <p>{text}</p>
       </div>
     </>
   );
