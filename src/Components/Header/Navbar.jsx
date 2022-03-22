@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import { Link } from "react-router-dom";
 // Navbar Using Props
 const Navbar = (props) => {
   return (
@@ -29,7 +30,7 @@ const Navbar = (props) => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/about">
                 {props.aboutText}
               </a>
             </li>
@@ -70,13 +71,13 @@ const Navbar = (props) => {
   );
 };
 
-// defining propTypes for Navbar to restrict props to string type
+// defining propTypes for Navbar href restrict props href string type
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   aboutText: PropTypes.string,
 };
 
-// defaultProps is used to add some text by default if given props are not defined
+// defaultProps is used href add some text by default if given props are not defined
 Navbar.defaultProps = {
   title: "Set Title here",
   aboutText: "Set About here",
