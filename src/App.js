@@ -4,7 +4,7 @@ import Alert from "./Components/Body/Alert";
 import About from "./Components/Body/About";
 import TextForm from "./Components/Body/TextForm";
 import Navbar from "./Components/Header/Navbar";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       {/* Passing title in Navbar Using Props */}
-      {/* <Router> */}
+      <Router>
         <Navbar
           title="<SK TextUtils/>"
           aboutText="About"
@@ -56,30 +56,28 @@ function App() {
         {/* <Navbar /> */}
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes> */}
-            {/* <Route exact path="/about" element={ */}
-            <About mode={mode} />
-            {/* // } /> */}
-            {/* <About />
-            </Route> */}
-            {/* <Route
+          <Routes>
+            <Route exact path="/about" element={<About mode={mode} />} />
+            {/* <About /> */}
+            {/* </Route> */}
+            <Route
               exact
               path="/"
-              element={ */}
+              element={
                 <TextForm
                   showAlert={showAlert}
                   heading="Enter the text to analyze"
                   mode={mode}
                 />
-            {/* //   }
-            // > */}
-              {/* <TextForm /> */}
-          {/* //   </Route> */}
-          {/* // </Routes> */}
+              }
+            />
+            {/* <TextForm /> */}
+            {/* //   </Route> */}
+          </Routes>
         </div>
         <hr />
         {/* <About /> */}
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

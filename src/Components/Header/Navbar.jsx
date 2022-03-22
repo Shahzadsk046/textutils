@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // Navbar Using Props
 const Navbar = (props) => {
   return (
@@ -8,9 +8,9 @@ const Navbar = (props) => {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,14 +25,14 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/about">
                 {props.aboutText}
-              </a>
+              </Link>
             </li>
           </ul>
           {/* <form className="d-flex">
@@ -71,13 +71,13 @@ const Navbar = (props) => {
   );
 };
 
-// defining propTypes for Navbar href restrict props href string type
+// defining propTypes for Navbar to restrict props to string type
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   aboutText: PropTypes.string,
 };
 
-// defaultProps is used href add some text by default if given props are not defined
+// defaultProps is used to add some text by default if given props are not defined
 Navbar.defaultProps = {
   title: "Set Title here",
   aboutText: "Set About here",
