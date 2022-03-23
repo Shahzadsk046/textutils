@@ -25,7 +25,7 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
@@ -36,28 +36,31 @@ const Navbar = (props) => {
             </li>
           </ul>
           <div className="d-flex">
-            <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className={`d-flex text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}>Choose Color Theme:</div>
+            <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-secondary rounded mx-2" onClick={()=>{props.toggleMode('secondary')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-secondary rounded mx-2" onClick={()=>{props.toggleMode('secondary')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-info rounded mx-2" onClick={()=>{props.toggleMode('info')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-info rounded mx-2" onClick={()=>{props.toggleMode('info')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-muted rounded mx-2" onClick={()=>{props.toggleMode('muted')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-muted rounded mx-2" onClick={()=>{props.toggleMode('muted')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-            <div className="bg-white rounded mx-2" onClick={()=>{props.toggleMode('white')}} style={{ height: "30px", width: "30px", cursor: "pointer" }}>
+            <div className="bg-white rounded mx-2" onClick={()=>{props.toggleMode('white')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
           </div>
-          <div
+          {/* <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"
             }`}
@@ -75,7 +78,7 @@ const Navbar = (props) => {
             >
               Toggle Mode
             </label>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

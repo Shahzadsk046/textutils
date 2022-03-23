@@ -37,12 +37,13 @@ function App() {
   const toggleMode = (cls) => {
     removeBodyClasses();
     console.log(cls);
+    // setMode(cls);
     document.body.classList.add("bg-" + cls);
     console.log(document.body.classList);
-    if (mode === "light") {
-      setMode("dark");
+    if (cls === "light" || cls === "white" ) {
+      setMode("light");
       document.body.style.backgroundColor = "#37474f";
-      showAlert("Dark Mode has been enabled", "success");
+      showAlert(`${cls.charAt(0).toUpperCase() + cls.slice(1)} Mode has been enabled`, "success");
       // document.title = "TextUtils - Dark Mode";
       // Dynamic Title
       // setInterval(() => {
@@ -52,9 +53,9 @@ function App() {
       //   document.title = "TextUtils is Installing";
       // }, 3000);
     } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light Mode has been enabled", "success");
+      setMode("dark");
+      // document.body.style.backgroundColor = "white";
+      showAlert(`${cls.charAt(0).toUpperCase() + cls.slice(1)} Mode has been enabled`, "success");
       // document.title = "TextUtils - Light Mode";
     }
   };

@@ -47,7 +47,7 @@ const TextForm = (props) => {
   //   setText("new text"); // Correct way to change the state
   let char = text.length;
   // using filter to don't count extra spaces and count only words if there exist
-  let word = text.split(" ").filter((element) => {
+  let word = text.split(/\s+/).filter((element) => {
     return element.length !== 0;
   }).length;
 
@@ -55,7 +55,7 @@ const TextForm = (props) => {
     <>
       <div
         className="container"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "light" ? "black" : "white" }}
       >
         <h1 className="mb-3">{props.heading}</h1>
         <div className="mb-3">
