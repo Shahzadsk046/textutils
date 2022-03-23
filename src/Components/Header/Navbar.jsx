@@ -35,7 +35,7 @@ const Navbar = (props) => {
               </Link>
             </li>
           </ul>
-          <div className="d-flex">
+          {/* <div className="d-flex">
             <div className={`d-flex text-${
               props.mode === "light" ? "dark" : "light"
             }`}>Choose Color Theme:</div>
@@ -59,8 +59,8 @@ const Navbar = (props) => {
             </div>
             <div className="bg-white rounded mx-2" onClick={()=>{props.toggleMode('white')}} style={{ border: "2px solid #424242", height: "30px", width: "30px", cursor: "pointer" }}>
             </div>
-          </div>
-          {/* <div
+          </div> */}
+          <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"
             }`}
@@ -78,7 +78,7 @@ const Navbar = (props) => {
             >
               Toggle Mode
             </label>
-          </div> */}
+          </div>
         </div>
       </div>
     </nav>
