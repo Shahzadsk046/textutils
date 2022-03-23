@@ -21,13 +21,29 @@ function App() {
     }, 1500);
   };
 
-  const toggleMode = () => {
+  const removeBodyClasses = () => {
+    document.body.classList.remove("bg-primary");
+    document.body.classList.remove("bg-secondary");
+    document.body.classList.remove("bg-success");
+    document.body.classList.remove("bg-danger");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-info");
+    document.body.classList.remove("bg-light");
+    document.body.classList.remove("bg-dark");
+    document.body.classList.remove("bg-muted");
+    document.body.classList.remove("bg-white");
+  };
+
+  const toggleMode = (cls) => {
+    removeBodyClasses();
+    console.log(cls);
+    document.body.classList.add("bg-" + cls);
+    console.log(document.body.classList);
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#37474f";
       showAlert("Dark Mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
-
+      // document.title = "TextUtils - Dark Mode";
       // Dynamic Title
       // setInterval(() => {
       //   document.title = "TextUtils is Amazing app";
@@ -39,7 +55,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light Mode has been enabled", "success");
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
 
@@ -66,7 +82,7 @@ function App() {
               element={
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter the text to analyze"
+                  heading="Try TextUtils- Word Counter, Character Counter, Remove Extra Spaces"
                   mode={mode}
                 />
               }

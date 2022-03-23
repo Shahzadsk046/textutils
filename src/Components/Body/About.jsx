@@ -1,4 +1,4 @@
-import React/*, { useState }*/ from "react";
+import React /*, { useState }*/ from "react";
 
 const About = (props) => {
   // const [myStyle, setMyStyle] = useState({
@@ -48,7 +48,7 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              Accordion Item #1
+              Analyze your text
             </button>
           </h2>
           <div
@@ -65,14 +65,9 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              TextUtils gives you a way to analyze your text quickly and
+              efficiently. Be it word count, character count or you can check
+              the reading time of a particular text.
             </div>
           </div>
         </div>
@@ -92,7 +87,7 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              Accordion Item #2
+              Free To Use
             </button>
           </h2>
           <div
@@ -109,14 +104,10 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              TextUtils is a free character counter tool that provides instant
+              character count & word count statistics for a given text.
+              TextUtils reports the number of words and characters. Thus it is
+              suitable for writing text with word/character limit.
             </div>
           </div>
         </div>
@@ -136,7 +127,7 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              Accordion Item #3
+              Browser Compatible
             </button>
           </h2>
           <div
@@ -152,14 +143,10 @@ const About = (props) => {
                 backgroundColor: props.mode === "dark" ? "#424242" : "white",
               }}
             >
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This word counter software works in any web browser such as
+              Chrome, Firefox, internet Explorer, Microsoft Edge, Opera, Safari.
+              It suits to count characters in facebook, blog, books, excel
+              document, pdf document, essays, etc.
             </div>
           </div>
         </div>

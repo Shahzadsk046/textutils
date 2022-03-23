@@ -7,33 +7,35 @@ const TextForm = (props) => {
     setText(newText);
     props.showAlert("Converted to Uppercase!", "success");
   };
-  
+
   const handleLowClick = () => {
     // console.log("Uppercase button was clicked");
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to Lowercase!", "success");
   };
-  
+
   const handleClearClick = () => {
     // console.log("Uppercase button was clicked");
     let newText = "";
     setText(newText);
     props.showAlert("Text Cleared!", "success");
   };
-  
+
   const handleOnChange = (event) => {
     // console.log("On Change");
     setText(event.target.value);
   };
-  
+
   const handleCopy = () => {
     let newText = document.getElementById("myBox");
     newText.select();
     navigator.clipboard.writeText(newText.value);
+    // to remove text from selection
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard!", "success");
   };
-  
+
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
@@ -44,7 +46,10 @@ const TextForm = (props) => {
   //   text = "new text"; // Wrong way to change the state
   //   setText("new text"); // Correct way to change the state
   let char = text.length;
-  let word = char === 0 ? 0 : text.split(" ").length;
+  // using filter to don't count extra spaces and count only words if there exist
+  let word = text.split(" ").filter((element) => {
+    return element.length !== 0;
+  }).length;
 
   return (
     <>
@@ -52,8 +57,8 @@ const TextForm = (props) => {
         className="container"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
+        <h1 className="mb-3">{props.heading}</h1>
         <div className="mb-3">
-          <h1>{props.heading}</h1>
           {/* <label htmlFor="myBox" className="form-label">Enter your text below</label> */}
           <textarea
             className="form-control"
@@ -68,19 +73,19 @@ const TextForm = (props) => {
             rows="5"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button disabled={text.length === 0} className="btn btn-primary m-1" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleLowClick}>
+        <button disabled={text.length === 0} className="btn btn-primary m-1" onClick={handleLowClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+        <button disabled={text.length === 0} className="btn btn-primary m-1" onClick={handleClearClick}>
           Clear Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+        <button disabled={text.length === 0} className="btn btn-primary m-1" onClick={handleCopy}>
           Copy Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+        <button disabled={text.length === 0} className="btn btn-primary m-1" onClick={handleExtraSpaces}>
           Remove Extra Spaces
         </button>
       </div>
@@ -94,7 +99,7 @@ const TextForm = (props) => {
         </p>
         <p>{0.008 * word} Minutes read</p>
         <h3>Preview</h3>
-        <p>{text.length>0?text:"Type something in box to preview"}</p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
     </>
   );
