@@ -28,11 +28,12 @@ const TextForm = (props) => {
   };
 
   const handleCopy = () => {
-    let newText = document.getElementById("myBox");
-    newText.select();
-    navigator.clipboard.writeText(newText.value);
+    // let newText = document.getElementById("myBox");
+    // newText.select();
+    // navigator.clipboard.writeText(newText.value);
+    navigator.clipboard.writeText(text);
     // to remove text from selection
-    document.getSelection().removeAllRanges();
+    // document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard!", "success");
   };
 
